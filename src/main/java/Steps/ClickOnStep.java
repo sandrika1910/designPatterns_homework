@@ -3,16 +3,16 @@ package Steps;
 import Pages.Clicks;
 import io.qameta.allure.Step;
 
-public class ClickOn {
+public class ClickOnStep {
     Clicks clicks = new Clicks();
     @Step
-    public ClickOn clickOnForms() {
+    public ClickOnStep clickOnForms() {
         clicks.formsCard.click();
         return this;
     }
 
     @Step
-    public ClickOn clickOnPracticeForm() {
+    public ClickOnStep clickOnPracticeForm() {
         clicks.practiceForm.click();
         return this;
     }
