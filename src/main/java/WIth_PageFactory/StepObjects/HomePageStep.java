@@ -11,14 +11,14 @@ public class HomePageStep extends BasePage{
     }
     HomePage homePage = new HomePage(driver);
 
-    @Step
+    @Step("Step 1 - > close cookies banner")
     public HomePageStep closeCookies() {
         homePage.cookies.click();
         return this;
 
     }
 
-    @Step
+    @Step("Step 2 - > go to movies section")
     public HomePageStep goToMovies() {
         homePage.movieMenu.click();
         return this;
