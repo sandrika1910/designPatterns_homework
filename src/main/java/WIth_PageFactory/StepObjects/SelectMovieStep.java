@@ -20,7 +20,7 @@ public class SelectMovieStep extends BasePage {
     Actions actions = new Actions(driver);
     MoviesPage moviesPage = new MoviesPage(driver);
 
-    @Step
+    @Step(value="Step 3 -> select first movie")
     public SelectMovieStep selectFirstMovie() {
         actions.moveToElement(moviesPage.getHover()).perform();
         wait.until(ExpectedConditions.visibilityOf(moviesPage.getHover()));

@@ -2,6 +2,7 @@ package WIth_PageFactory.StepObjects;
 import WIth_PageFactory.PageObjects.BasePage;
 import WIth_PageFactory.PageObjects.FirstMoviePage;
 import io.qameta.allure.Step;
+import io.qameta.allure.model.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +27,7 @@ public class FirstMoviePageSteps extends BasePage {
     Actions actions = new Actions(driver);
     FirstMoviePage firstMoviePage = new FirstMoviePage(driver);
 
-    @Step
+    @Step(value="Step4 -> select 'კავეა ისთ ფოინთი'")
     public FirstMoviePageSteps selectCaveEastPoint() {
         List<WebElement> places = firstMoviePage.places;
         WebElement eastPoint = null;
@@ -55,7 +56,7 @@ public class FirstMoviePageSteps extends BasePage {
         return this;
     }
 
-    @Step
+    @Step(value = "Step5 -> check that 'კავეა ისთ ფოინთი' is selected")
     public FirstMoviePageSteps checkReturnedOption() {
         wait.until(ExpectedConditions.attributeToBe(firstMoviePage.getParentElement(),"aria-selected","true"));
         Assert.assertEquals(firstMoviePage.getParentElement().getAttribute("aria-selected"), "true","'კავეა ისთ ფოინთი' is not selected");
@@ -63,7 +64,7 @@ public class FirstMoviePageSteps extends BasePage {
         return this;
     }
 
-    @Step
+    @Step(value="Step6 -> click on last day and then choose last seanse date")
     public FirstMoviePageSteps clickOnLast() {
         int windowHeight = driver.manage().window().getSize().getHeight();
         int elementPositionY = firstMoviePage.lastOption.getLocation().getY();
@@ -77,7 +78,7 @@ public class FirstMoviePageSteps extends BasePage {
         return this;
     }
 
-    @Step
+    @Step("Step7 -> check that returned date and time is valid")
     public FirstMoviePageSteps check() {
         String dateAttr = firstMoviePage.lastDate.findElement(By.xpath("..")).getAttribute("aria-controls");
         String expectedCinemaName = firstMoviePage.lastOption.findElement(By.xpath("./a/p[2]")).getText();
@@ -133,7 +134,7 @@ public class FirstMoviePageSteps extends BasePage {
         return this;
     }
 
-    @Step
+    @Step("Step8 -> choose on of the free seat")
     public FirstMoviePageSteps chooseSeat() {
         WebElement freeSeat = firstMoviePage.parentForSeats.findElement(By.xpath("./div[@class='seat free']"));
         freeSeat.click();
