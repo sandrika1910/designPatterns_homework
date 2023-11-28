@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="swoop.ge test with Fluent API">
+    <test name="swoop.ge test">
+        <classes>
+            <class name="ClickOnButtons"/>
+        </classes>
+    </test>
+  
+</suite>
