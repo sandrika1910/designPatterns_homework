@@ -2,7 +2,7 @@ import Data.UrlData;
 import Steps.*;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Story;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
