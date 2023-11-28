@@ -7,6 +7,7 @@ public class ConfigClass {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
+        options.addArguments("--remote-allow-origins=*");
         Configuration.browserCapabilities = options;
         Configuration.browserSize = null;
         Configuration.timeout = 20000;
