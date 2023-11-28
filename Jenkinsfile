@@ -1,17 +1,29 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Checkout') {
+      steps {
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/sandrika1910/designPatterns_homework.git']]])
+      }
+    }
+
+    stage('Build and Version') {
       parallel {
-        stage('Build') {
+        stage('Build Project') {
           steps {
-            bat 'mvn clean test'
+            script {
+              bat 'mvn clean test'
+            }
+
           }
         }
 
-        stage('error') {
+        stage('Get Maven Version') {
           steps {
-            bat 'mvn --version'
+            script {
+              bat 'mvn --version'
+            }
+
           }
         }
 
